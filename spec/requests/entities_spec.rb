@@ -47,7 +47,6 @@ RSpec.describe '/entities', type: :request do
     end
   end
 
-
   describe 'POST /create' do
     context 'with valid parameters' do
       it 'creates a new Entity' do

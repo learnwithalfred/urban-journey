@@ -1,9 +1,11 @@
 class EntitiesController < ApplicationController
-  before_action :set_entity, only: %i[show  destroy]
+  before_action :set_entity, only: %i[show destroy]
 
   # GET /entities or /entities.json
   def index
-    @entities = Entity.all
+    @group = Group.find(params[:group_id])
+
+    @entities = @group.entities.all.order(created_at: :desc)
   end
 
   # GET /entities/1 or /entities/1.json
@@ -11,24 +13,25 @@ class EntitiesController < ApplicationController
 
   # GET /entities/new
   def new
-    @entity = Entity.new
+    @group = Group.find(params[:group_id])
+    @entity = @group.entities.new
   end
 
-  # POST /entities or /entities.json
   def create
-    @entity = Entity.new(entity_params)
+    @group = Group.find(params[:group_id])
+    @entity = @group.entities.create!(name: entity_params[:name], amount: entity_params[:amount],
+                                      user_id: current_user.id, group_id: @group.id)
 
     respond_to do |format|
-      if @entity.save
-        format.html { redirect_to entity_url(@entity), notice: 'Entity was successfully created.' }
-        format.json { render :show, status: :created, location: @entity }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @entity.errors, status: :unprocessable_entity }
+      format.html do
+        if @entity.save
+          redirect_to group_entities_path(@group.id), notice: 'You have successfully created a transaction.'
+        else
+          render :new, alert: 'Error: Transaction could not be saved'
+        end
       end
     end
   end
-
 
   # DELETE /entities/1 or /entities/1.json
   def destroy
