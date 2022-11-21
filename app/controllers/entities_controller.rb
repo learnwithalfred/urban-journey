@@ -1,5 +1,6 @@
 class EntitiesController < ApplicationController
   before_action :set_entity, only: %i[show destroy]
+  before_action :authenticate_user!, except: %i[index]
 
   # GET /entities or /entities.json
   def index
