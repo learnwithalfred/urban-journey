@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root "splash#index"
+  devise_for :users
+       root to: "splash#index"
+
 end
