@@ -12,9 +12,9 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe '/groups', type: :request do
+RSpec.describe '/entities', type: :request do
   # This should return the minimal set of attributes required to create a valid
-  # Group. As you add validations to Group, be sure to
+  # Entity. As you add validations to Entity, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
     skip('Add a hash of attributes valid for your model')
@@ -26,50 +26,51 @@ RSpec.describe '/groups', type: :request do
 
   describe 'GET /index' do
     it 'renders a successful response' do
-      Group.create! valid_attributes
-      get groups_url
+      Entity.create! valid_attributes
+      get entities_url
       expect(response).to be_successful
     end
   end
 
   describe 'GET /show' do
     it 'renders a successful response' do
-      group = Group.create! valid_attributes
-      get group_url(group)
+      entity = Entity.create! valid_attributes
+      get entity_url(entity)
       expect(response).to be_successful
     end
   end
 
   describe 'GET /new' do
     it 'renders a successful response' do
-      get new_group_url
+      get new_entity_url
       expect(response).to be_successful
     end
   end
 
+
   describe 'POST /create' do
     context 'with valid parameters' do
-      it 'creates a new Group' do
+      it 'creates a new Entity' do
         expect do
-          post groups_url, params: { group: valid_attributes }
-        end.to change(Group, :count).by(1)
+          post entities_url, params: { entity: valid_attributes }
+        end.to change(Entity, :count).by(1)
       end
 
-      it 'redirects to the created group' do
-        post groups_url, params: { group: valid_attributes }
-        expect(response).to redirect_to(group_url(Group.last))
+      it 'redirects to the created entity' do
+        post entities_url, params: { entity: valid_attributes }
+        expect(response).to redirect_to(entity_url(Entity.last))
       end
     end
 
     context 'with invalid parameters' do
-      it 'does not create a new Group' do
+      it 'does not create a new Entity' do
         expect do
-          post groups_url, params: { group: invalid_attributes }
-        end.to change(Group, :count).by(0)
+          post entities_url, params: { entity: invalid_attributes }
+        end.to change(Entity, :count).by(0)
       end
 
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post groups_url, params: { group: invalid_attributes }
+        post entities_url, params: { entity: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -81,42 +82,42 @@ RSpec.describe '/groups', type: :request do
         skip('Add a hash of attributes valid for your model')
       end
 
-      it 'updates the requested group' do
-        group = Group.create! valid_attributes
-        patch group_url(group), params: { group: new_attributes }
-        group.reload
+      it 'updates the requested entity' do
+        entity = Entity.create! valid_attributes
+        patch entity_url(entity), params: { entity: new_attributes }
+        entity.reload
         skip('Add assertions for updated state')
       end
 
-      it 'redirects to the group' do
-        group = Group.create! valid_attributes
-        patch group_url(group), params: { group: new_attributes }
-        group.reload
-        expect(response).to redirect_to(group_url(group))
+      it 'redirects to the entity' do
+        entity = Entity.create! valid_attributes
+        patch entity_url(entity), params: { entity: new_attributes }
+        entity.reload
+        expect(response).to redirect_to(entity_url(entity))
       end
     end
 
     context 'with invalid parameters' do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-        group = Group.create! valid_attributes
-        patch group_url(group), params: { group: invalid_attributes }
+        entity = Entity.create! valid_attributes
+        patch entity_url(entity), params: { entity: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
 
   describe 'DELETE /destroy' do
-    it 'destroys the requested group' do
-      group = Group.create! valid_attributes
+    it 'destroys the requested entity' do
+      entity = Entity.create! valid_attributes
       expect do
-        delete group_url(group)
-      end.to change(Group, :count).by(-1)
+        delete entity_url(entity)
+      end.to change(Entity, :count).by(-1)
     end
 
-    it 'redirects to the groups list' do
-      group = Group.create! valid_attributes
-      delete group_url(group)
-      expect(response).to redirect_to(groups_url)
+    it 'redirects to the entities list' do
+      entity = Entity.create! valid_attributes
+      delete entity_url(entity)
+      expect(response).to redirect_to(entities_url)
     end
   end
 end
