@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[show destroy]
+  before_action :set_group, only: %i[destroy]
   before_action :authenticate_user!, except: %i[index]
 
   # GET /groups or /groups.json
@@ -7,9 +7,6 @@ class GroupsController < ApplicationController
     # @groups = current_user.groups.all
     @groups = Group.all
   end
-
-  # GET /groups/1 or /groups/1.json
-  def show; end
 
   # GET /groups/new
   def new
