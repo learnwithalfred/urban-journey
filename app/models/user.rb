@@ -20,8 +20,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   before_save :to_lowercase
 
-   has_many :groups
+  has_many :groups
   has_many :entities
+
   private
 
   def to_lowercase
