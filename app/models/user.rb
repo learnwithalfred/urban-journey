@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  MAX_LENGTH = 35
+  MAX_LENGTH = 250
   MIN_LENGTH = 1
   validates :name, presence: true, length: { maximum: MAX_LENGTH }
   validates :email,

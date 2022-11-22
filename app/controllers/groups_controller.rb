@@ -1,11 +1,10 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i[destroy]
-  before_action :authenticate_user!, except: %i[index]
+  before_action :authenticate_user!
 
   # GET /groups or /groups.json
   def index
     @groups = current_user.groups.all
-    # @groups = Group.all
   end
 
   # GET /groups/new

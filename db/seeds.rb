@@ -1,4 +1,4 @@
-3.times do
+5.times do
   User.create!(
     [{
       name: Faker::Name.name,
@@ -9,7 +9,7 @@
 end
 
 
-5.times do
+10.times do
   Group.create!(
     [{
       name: Faker::Food.dish,
@@ -19,7 +19,7 @@ end
 end
 
 
-15.times do
+10.times do
   Entity.create!(
     [{
       name: Faker::Food.dish,
