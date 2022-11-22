@@ -82,5 +82,4 @@ gem 'faker'
 
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
 
-
 gem 'bullet'
