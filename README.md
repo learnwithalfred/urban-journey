@@ -48,9 +48,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- A special thanks to Microverse for inspiring this project.
+- Original design idea by [Gregoire Vella](https://www.behance.net/gregoirevella) on Behance.
 
 ## 📝 License
 
