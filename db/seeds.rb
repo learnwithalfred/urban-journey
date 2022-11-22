@@ -19,7 +19,7 @@ end
 end
 
 
-20.times do
+15.times do
   Entity.create!(
     [{
       name: Faker::Food.dish,

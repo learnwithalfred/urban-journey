@@ -26,16 +26,6 @@
           ease-in-out focus:border-blue-300 sm:text-sm sm:leading-5" %>
         </div>
       </div>
-      <div class="mt-6 flex items-center justify-between">
-        <div class="flex items-center">
-          <label class="form-check-label text-muted">
-            <%= f.check_box :remember_me, class: "form-checkbox h-4 w-4 text-bb-gray-700" %> Remember me
-          </label>
-        </div>
-        <div class="text-sm leading-5">
-          <%= link_to "Forgot your password?", new_password_path(resource_name), class: "font-medium text-bb-gray-700 hover:text-bb-gray-900 focus:outline-none focus:underline transition ease-in-out duration-150" %>
-        </div>
-      </div>
       <div class="mt-6">
         <%= f.submit "Sign in", class:"transition border bg-blue-500
       hover:bg-blue-700 focus:outline-none group relative flex w-full
