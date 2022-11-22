@@ -1,0 +1,36 @@
+<div class="w-full px-4 bg-white  sm:p-8 dark:bg-gray-800 dark:border-gray-700 py-16">
+  <div class="flex items-center justify-between mb-4">
+    <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">All Categories</h5>
+  </div>
+  <div class="flow-root">
+    <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+      <% @groups.each do |group| %>
+      <%= link_to group_entities_path(group.id) do %>
+
+      <li class="py-3 sm:py-4">
+        <div class="flex items-center space-x-4">
+
+          <div class="flex-shrink-0">
+            <img class="w-8 h-8 rounded-full" src="<%=(url_for(group.icon))%>" alt=" <%= group.name %>">
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-base font-bold text-gray-900 truncate dark:text-white">
+              <%= group.name %>
+            </p>
+            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+              <%= group.created_at.strftime("%B %d, %Y") %>
+            </p>
+          </div>
+          <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+            $<%= group.total_transaction %>
+          </div>
+        </div>
+      </li>
+      <% end %>
+      <% end %>
+
+    </ul>
+  </div>
+  <%= link_to 'Add A New Category', new_group_path, class: "rounded-lg px-24 py-3 bg-secondaryColor text-white block font-medium text-center mt-16" %>
+
+</div>
