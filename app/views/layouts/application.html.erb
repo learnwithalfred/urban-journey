@@ -9,17 +9,12 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body class="relative h-screen flex items-center justify-center  bg-[url('utility.jpg')] bg-repeat bg-center">
-    <div class="max-w-9xl mx-auto px-4 py-2 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-md">
-        
-        <main class="bg-white py-4 ">
+  <body class=" bg-[url('utility.jpg')] bg-repeat bg-center">
+    <main class="py-4 content">
         
           <div class="flash"><%= render 'shared/flash' %> </div>
           <%= yield %>
         </main>
-      </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
   </body>
 </html>

@@ -1,12 +1,6 @@
-<div class="p-4 w-full">
-  <%= link_to groups_path, class:"text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800" do %>
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
-    viewBox="0 0 16 16">
-    <path fill-rule="evenodd"
-      d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
-  </svg>
-  <% end%>
-  <h1 class="font-bold text-4xl text-center">Add New Category</h1>
+<div class="p-4 h-screen flex flex-col justify-center">
+
+  <h1 class="font-bold text-4xl text-center text-white">Add New Category</h1>
 
 <%= form_with(model: @group, class: "contents") do |form| %>
   <% if @group.errors.any? %>
@@ -22,12 +16,12 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :name %>
+    <%= form.label :name, class:"text-white" %>
     <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", required: true %>
   </div>
 
   <div class="my-5">
-    <%= form.label :icon %>
+    <%= form.label :icon, class:"text-white" %>
     <%= form.text_field :icon, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", required: true %>
   </div>
 
@@ -35,5 +29,11 @@
     <%= form.submit "Add A New Category", class: "rounded-lg px-4 py-3 bg-secondaryColor text-white block font-medium text-center mt-8 w-full hover:bg-gray-100 hover:text-secondaryColor cursor-pointer" %>
   </div>
 <% end %>
-
+  <%= link_to groups_path, class:"text-white text-blue-700 my-5 font-bold text-4xl" do %>
+  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-arrow-left"
+    viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+  </svg>
+  <% end%>
 </div>
